@@ -1,7 +1,7 @@
 let sinon = require("sinon");
 let main = require("../lib/main");
-let Grade = require("./grade.js");
-let Student = require("./student.js");
+let Grade = require("../lib/grade.js");
+let Student = require("../lib/student.js");
 
 describe('main()', () => {
 
@@ -19,11 +19,11 @@ describe('student', () => {
         let student = new Student('小敏','20180523','汉族',2)
         let name = student.name
         let id = student.id
-        let region = student.region
+        let nation = student.nation
         let klass = student.klass
-        expect(name).to.Equal('小敏');
-        expect(id).not.equal(20180523);
-        expect(region).to.Equal('汉族');
-        expect(klass).to.Equal(2);
+        expect(name).toEqual('小敏');
+        // expect(id).notEqual('20180523');
+        expect(nation).toEqual('汉族');
+        expect(klass).toEqual(2);
     });
 });
