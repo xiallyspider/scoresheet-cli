@@ -1,6 +1,5 @@
 let sinon = require("sinon");
-let main = require("../lib/main");
-let Grade = require("../lib/grade.js");
+let main = require("../lib/main.js");
 let Student = require("../lib/student.js");
 
 describe('main()', () => {
@@ -16,14 +15,18 @@ describe('main()', () => {
 });
 describe('student', () => {
     it('学生基本信息应该包含：姓名、学号、民族、班级', () => {
-        let student = new Student('小敏','20180523','汉族',2)
+        let student = new Student([
+            {attr:'name',value:'min'},
+            {attr:'id',value:'20180523'},
+            {attr:'region',value:'han'},
+            {attr:'class',value:2}])
         let name = student.name
         let id = student.id
-        let nation = student.nation
-        let klass = student.klass
-        expect(name).toEqual('小敏');
-        // expect(id).notEqual('20180523');
-        expect(nation).toEqual('汉族');
+        let region = student.region
+        let klass = student.class
+        expect(name).toEqual('min');
+        expect(id).toEqual('20180523');
+        expect(region).toEqual('han');
         expect(klass).toEqual(2);
     });
 });
